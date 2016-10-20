@@ -1,0 +1,91 @@
+
+
+img {
+  @extend %fluid-image;
+}
+
+.row {
+  @extend %clearfix;
+}
+
+.wrapper {
+  @extend %wrapper;
+  @extend %clearfix;
+  @include container;
+}
+
+.span1 {
+  @include span-columns(1);
+}
+
+.span2 {
+  @include span-columns(2);
+}
+
+.span3 {
+  @include span-columns(3);
+}
+
+.span4 {
+  @include span-columns(4);
+}
+
+.span5 {
+  @include span-columns(5);
+}
+
+.span6 {
+  @include span-columns(6);
+}
+
+.span7 {
+  @include span-columns(7);
+}
+
+.span8 {
+  @include span-columns(8);
+}
+
+.span9 {
+  @include span-columns(9);
+}
+
+.span10 {
+  @include span-columns(10);
+}
+
+.span11 {
+  @include span-columns(11);
+}
+
+.span12 {
+  @include span-columns(12);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  //font-family: 'Noto Serif', serif;
+  //margin: 0 0 20px;
+}
+
+h1 {
+  @extend %hidden;
+}
+
+a {
+  //color: $breeze;
+}
+
+ul,
+ol {
+  //padding-left: $gutter-width;
+
+  @include susy-breakpoint($tablet, $susy) {
+    //padding-left: $gutter-width * 3;
+  }
+}
+
