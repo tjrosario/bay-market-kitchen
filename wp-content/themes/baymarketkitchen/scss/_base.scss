@@ -1,4 +1,14 @@
+body {
+  background-color: $fiord;
+  color: $mine-shaft;
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 10px;
+  padding: 50px 0 0;
 
+  @include susy-breakpoint($tablet, $susy) {
+    padding-top: 79px;
+  }
+}
 
 img {
   @extend %fluid-image;
@@ -9,9 +19,16 @@ img {
 }
 
 .wrapper {
-  @extend %wrapper;
   @extend %clearfix;
   @include container;
+}
+
+.content-area {
+  @include container;
+  font-size: inherit;
+  max-width: $max-width-px;
+  padding-left: $gutter-width;
+  padding-right: $gutter-width;
 }
 
 .span1 {
@@ -62,14 +79,21 @@ img {
   @include span-columns(12);
 }
 
+.align-left { text-align: left; }
+
+.align-center { text-align: center; }
+
+.align-right { text-align: right; }
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  //font-family: 'Noto Serif', serif;
-  //margin: 0 0 20px;
+  font-family: 'industry_incbevel';
+  font-weight: normal;
+  letter-spacing: .05em;
 }
 
 h1 {
@@ -87,5 +111,604 @@ ol {
   @include susy-breakpoint($tablet, $susy) {
     //padding-left: $gutter-width * 3;
   }
+}
+
+p {
+  font-size: 1.8em;
+}
+
+#colophon {
+  background-color: $fiord;
+  color: $hampton;
+  padding-left: $gutter-width;
+  padding-right: $gutter-width;
+  text-align: center;
+
+  .site-footer__top {
+    margin-bottom: $gutter-width;
+  }
+
+  a {
+    color: $hampton;
+  }
+
+  h6 {
+    color: $hampton;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 1.4em;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .content {
+    position: relative;
+  }
+
+  .company-hours {
+    font-family: 'industry_incbevel';
+    margin: 0 0 $gutter-width;
+    padding: 12px 0 0;
+
+    @include susy-breakpoint($tablet, $susy) {
+      margin: 0;
+    }
+
+    .content {
+      font-size: 2.6em * $mobile-conversion;
+      letter-spacing: .05em;
+      padding: 7px 0;
+
+      @include susy-breakpoint($tablet, $susy) {
+        font-size: 2.6em;
+      }
+    }
+  }
+
+  .company-address {
+    font-family: 'industry_incbevel';
+
+    .content {
+      font-size: 2.4em * $mobile-conversion;
+
+      @include susy-breakpoint($tablet, $susy) {
+        font-size: 2.4em;
+      }
+    }
+  }
+
+  .company-phone {
+    font-family: 'industry_incbevel';
+
+    h6 {
+      display: inline;
+      margin: 0 20px 0 0;
+    }
+
+    div {
+      display: inline;
+    }
+
+    .content {
+      font-size: 2.2em * $mobile-conversion;
+      letter-spacing: .05em;
+      top: 3px;
+
+      @include susy-breakpoint($tablet, $susy) {
+        font-size: 2.2em;
+      }
+    }
+  }
+
+  .company-social {
+    font-family: 'industry_incbevel';
+
+    h6 {
+      display: inline;
+      margin: 0 20px 0 0;
+    }
+
+    .content,
+    .social {
+      display: inline;
+    }
+
+    .content {
+      top: 1px;
+    }
+  }
+
+  .social {
+    position: relative;
+    top: 2px;
+
+    a {
+      transition: all .2s ease-out;
+
+      &:hover {
+        opacity: .65;
+      }
+    }
+  }
+
+  .col-b {
+    @include susy-breakpoint($tablet, $susy) {
+      border-left: 1px solid $hampton;
+      border-right: 1px solid $hampton;
+    }
+
+    .top {
+      border-bottom: 1px solid $hampton;
+      padding: 0 0 12px;
+
+      @include susy-breakpoint($tablet, $susy) {
+
+      }
+    }
+
+    .bottom {
+      .col-a {
+        padding: 14px 0;
+      }
+
+      .col-b {
+        @include susy-breakpoint($tablet, $susy) {
+          border-right: 0;
+          padding: 14px 0;
+        }
+      }
+    }
+  }
+}
+
+#content {
+  background-color: $white;
+  text-align: center;
+}
+
+#primary {
+  background-position: 0 0;
+  background-repeat: no-repeat;
+
+  h2 {
+    font-family: 'industry_inc3d';
+    font-size: 4.1em;
+  }
+
+  .hentry {
+    h3 {
+      font-family: 'industry_incin-n-out';
+      font-size: 3.2em;
+    }
+  }
+
+  .menu {
+    background: $white;
+    border: 2px solid $scorpion;
+    color: $fiord;
+    margin-bottom: 60px;
+    position: relative;
+
+    &.list {
+      .menu__item-prices {
+        color: $fuzzy-wuzzy-brown;
+        margin: 0;
+      }
+    }
+
+    .menu__header {
+      border-bottom: 2px solid $scorpion; 
+      padding: 0 0 2px;
+
+      th {
+        border-bottom: 2px solid $scorpion; 
+      }
+    }
+
+    .menu__addons {
+      .menu__header {
+        border-top: 1px solid $scorpion; 
+        border-width: 1px;
+      }
+
+      .menu__category {
+        border: 0;
+        font-family: 'industry_incin-n-out';
+      }
+
+      .menu__items {
+        .menu__item {
+          margin: 0;
+        }
+
+        .menu__item-name {
+          color: $fiord;
+        }
+
+        .menu__item-prices {
+          color: $fiord;
+        }
+      }
+    }
+
+    .menu__category {
+      border-bottom: 2px solid $scorpion; 
+      font-size: 3.2em;
+      margin: 0;
+      padding: 10px $gutter-width 5px;
+    }
+
+    .menu__items {
+      padding: 24px $gutter-width;
+
+      .menu__item-name {
+        display: inline;
+      }
+
+      .menu__item-prices {
+        display: inline;
+
+        .menu__item-price {
+          margin-right: 12px;
+
+          &:last-of-type {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+    .menu__item {
+      margin: 0 0 20px;
+
+      .menu__item-name {
+        color: $fuzzy-wuzzy-brown;
+        font-family: 'Pathway Gothic One', sans-serif;
+        font-size: 1.8em;
+        line-height: 1.4;
+        margin: 0;
+        text-transform: none;
+      }
+
+      .menu__item-description {
+        font-size: 1.8em;
+        line-height: 1.4;
+        margin: 0;
+      }
+    }
+
+    table {
+      border-collapse: unset;
+      margin: 0;
+      text-align: left;
+
+      tbody {
+        padding: 10px 0 0;
+      }
+
+      th {
+        background: none;
+        color: $fuzzy-wuzzy-brown;
+        font-family: 'industry_incbevel';
+        font-size: 16px;
+        font-weight: normal;
+        padding: 10px 0 6px;
+        text-align: center;
+        vertical-align: center;
+      }
+
+      td {
+        border: 0;
+        padding: 6px $gutter-width;
+        vertical-align: top;
+      }
+
+      .menu__category {
+        border: 0;
+        color: $fuzzy-wuzzy-brown;
+        font-size: 32px;
+        text-align: left;
+      }
+
+      .menu__item {
+        .menu__item-name {
+          font-family: 'Pathway Gothic One', sans-serif;
+        }
+
+        .menu__item-price {
+          color: $bombay;
+          font-size: 16px;
+          text-align: center;
+        }
+
+        .menu__item-subitem {
+          margin: 0;
+        }
+
+        &.top {
+          &.group {
+            margin: 0;
+
+            td {
+              border-bottom: 2px solid $fiord;
+              border-top: 2px solid $fiord;
+              padding: 3px 20px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.hentry {
+  @extend %reset;
+
+  pre {
+    background: none;
+    overflow-x: hidden;
+  }
+}
+
+.hero {
+  @extend %hero;
+}
+
+.site-branding {
+  @include susy-breakpoint($tablet, $susy) {
+    @include span(2);
+  }
+
+  .sidebar-toggled & {
+    width: auto;
+  }
+
+  .site-title {
+    img {
+      margin: 0;
+      max-height: 40px;
+
+      @include susy-breakpoint($tablet, $susy) {
+        max-height: none;
+      }
+    }
+  }
+
+  .site-description {
+    @extend %hidden;
+  }
+}
+
+.social {
+  @extend %reset;
+
+  li {
+    display: inline-block;
+    font-size: 2em;
+    margin: 0 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  a {
+    color: $black;
+
+    &:hover {
+      color: $fuzzy-wuzzy-brown;
+    }
+  }
+}
+
+.site-header {
+  background: $white;
+  border-bottom: 1px solid $black;
+  height: 50px;
+  left: 0;
+  overflow: hidden;
+  padding: 5px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+
+  @include susy-breakpoint($tablet, $susy) {
+    height: 79px;
+    padding: 10px 0;
+  }
+
+  .masthead__wrapper {
+    padding-left: $gutter-width;
+    padding-right: $gutter-width;
+  }
+
+  .admin-bar & {
+    top: 48px;
+
+    @include susy-breakpoint($tablet, $susy) {
+      top: 32px;
+    }
+  }
+
+  .site-social {
+    display: none;
+
+    @include susy-breakpoint($tablet, $susy) {
+      @include span(2 last);
+      display: block;
+    }
+
+    .social {
+      margin-top: 14px;
+    }
+  }
+
+  .header-navigation {
+    display: none;
+    margin: 25px 0 0;
+    position: relative;
+    text-align: left;
+
+    @include susy-breakpoint($tablet, $susy) {
+      @include span(8);
+      display: block;
+    }
+
+    .menu-header-container {
+      animation: none;
+      color: $black;
+      right: 0;
+      text-align: center;
+
+      ul {
+        display: inline;
+
+        li {
+          background: url('#{$theme-path}/images/dot-gray.png') no-repeat 0 4px;
+          background-size: 5px;
+          font-size: 1.8em;
+          letter-spacing: .05em;
+          margin: 0 5px 0 0;
+          padding: 0 0 0 16px;
+
+          &:first-child {
+            background: none;
+            padding-left: 0;
+          }
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          a {
+            color: $black;
+            padding: 0 0 4px;
+
+            &:hover {
+              border-bottom: 1px solid $fuzzy-wuzzy-brown;
+              color: $fuzzy-wuzzy-brown;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.widget {
+  text-shadow: 0 0 0;
+}
+
+#sidebar {
+  background: $black;
+  overflow: hidden;
+  padding: 0;
+
+  .admin-bar & {
+    top: 48px;
+
+    @include susy-breakpoint($tablet, $susy) {
+      top: 32px;
+    }
+  }
+
+  .sidebar-toggled & {
+    width: 95%;
+
+    @include susy-breakpoint($tablet, $susy) {
+      width: 300px;
+    }
+  }
+
+  .main-navigation {
+    font-size: inherit;
+    font-weight: normal;
+    margin: 0 0 30px;
+    padding: 0;
+    text-align: left;
+
+    li {
+      font-size: 1.6em;
+      margin: 0 0 $gutter-width;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    a {
+      color: $hampton;
+      padding: 0;
+      transition: all .2s ease-out;
+
+      &:hover {
+        opacity: .65;
+      }
+    }
+  }
+
+  .sidebar-inner {
+    max-width: none;
+    padding: $gutter-width;
+    transition: none;
+  }
+
+  .site-branding {
+    float: none;
+    margin: 0 0 30px;
+
+    .site-title {
+      a {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .sidebar-toggle {
+    color: $white;
+    display: block;
+    font-size: 2.6em;
+  }
+}
+
+.sidebar-toggle {
+  @extend %reset;
+  animation: none;
+  color: $black;
+  display: block;
+  font-size: 2.6em;
+  right: $gutter-width;
+  top: 5px;
+  transform: none;
+
+  @include susy-breakpoint($tablet, $susy) {
+    display: none;
+    top: 20px;
+  }
+
+  .sidebar-toggled &,
+  .sidebar-toggled.admin-bar {
+    position: absolute;
+    top: 5px !important;
+    transform: none !important;
+
+    @include susy-breakpoint($tablet, $susy) {
+      top: 20px;
+    }
+  }
+}
+
+.site-header-image {
+  margin: 0;
+}
+
+.site {
+  width: auto;
+}
+
+.copyright {
+  color: $white;
+  font-size: 1.2em;
+  letter-spacing: .05em;
 }
 

@@ -4,10 +4,11 @@
  * Handles toggling the sidebar
  */
 
-( function() {
+( function($) {
+	/*
 	var container, button, menu, body, links, subMenus;
 
-	container = document.getElementById( 'site-navigation' );
+	container = document.getElementById( 'masthead' );
 	if ( ! container ) {
 		return;
 	}
@@ -28,5 +29,19 @@
 			body.className += ' sidebar-toggled';
 		}
 	};
+	*/
 
-} )();
+	var $body = $('body');
+	var $sidebarToggle = $('.sidebar-toggle');
+
+	$sidebarToggle.on('click', function(e) {
+		if ($body.hasClass('sidebar-toggled')) {
+			$body.removeClass('sidebar-toggled');
+			$body.addClass('sidebar-closed');
+		} else {
+			$body.addClass('sidebar-toggled');
+			$body.removeClass('sidebar-closed');
+		}
+	});
+
+})(jQuery);

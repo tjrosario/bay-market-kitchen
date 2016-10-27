@@ -152,6 +152,7 @@ function magnus_scripts() {
 
 	// Load our main stylesheet.
 	wp_enqueue_style( 'magnus-style', get_stylesheet_uri() );
+  wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Pathway+Gothic+One' );
   wp_enqueue_style( 'app-style', get_template_directory_uri() . '/dist/styles/app.css' );
 
     // Load scripts
@@ -173,6 +174,43 @@ function magnus_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'magnus_scripts' );
 
+
+//Page Slug Body Class
+function add_slug_body_class( $classes ) {
+  global $post;
+  if ( isset( $post ) ) {
+    $classes[] = $post->post_type . '-' . $post->post_name;
+  }
+  return $classes;
+}
+add_filter( 'body_class', 'add_slug_body_class' );
+
+function my_custom_init() {
+  remove_post_type_support( 'page', 'custom-fields' );
+}
+add_action( 'init', 'my_custom_init' );
+
+add_filter('piklist_admin_pages', 'piklist_theme_setting_pages');
+function piklist_theme_setting_pages($pages) {
+   $pages[] = array(
+    'page_title' => __('Custom Settings')
+    ,'menu_title' => __('Settings', 'piklist')
+    ,'sub_menu' => 'themes.php' //Under Appearance menu
+    ,'capability' => 'manage_options'
+    ,'menu_slug' => 'custom_settings'
+    ,'setting' => 'my_theme_settings'
+    ,'menu_icon' => plugins_url('piklist/parts/img/piklist-icon.png')
+    ,'page_icon' => plugins_url('piklist/parts/img/piklist-page-icon-32.png')
+    ,'single_line' => true
+    ,'default_tab' => 'Basic'
+    ,'save_text' => 'Save Settings'
+  );
+
+
+
+
+  return $pages;
+}
 
 /**
  * Implement the Custom Header feature.

@@ -4,8 +4,10 @@
 $columns: 12;
 $column-width: 60px;
 $gutter-width: 20px;
-$max-width: 1224px;
-$asset-path: '/dist';
+$max-width: 1000;
+$max-width-px: 1280px;
+$theme-path: '/wp-content/themes/baymarketkitchen';
+$mobile-conversion: .8;
 
 $susy: (
   container: $max-width,
@@ -26,13 +28,11 @@ $desktop: 1024px; // min-width: 1024px
 // Colors
 // ============
 
-$black: #333;
-$breeze: #438496;
-$field: #b37d4e;
-$natural-gray: #8b8680;
-$romance: #fffefc;
-$summer-sky: #286da8;
-$warm-peach: #cd5360;
+$black: #000;
+$bombay: #afb5bc;
+$fiord: #3d5265;
+$fuzzy-wuzzy-brown: #bf6059;
+$hampton: #e6d5ab;
+$mine-shaft: #212121;
+$scorpion: #5c5c5c;
 $white: #fff;
-
-

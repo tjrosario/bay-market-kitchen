@@ -33,3 +33,95 @@
   top: auto;
   width: 1px;
 }
+
+%hero {
+  background-size: cover;
+  height: 200px;
+  margin: 0 0 100px;
+
+  @include susy-breakpoint($tablet, $susy) {
+    height: 424px;
+  }
+
+  .hero__wrapper {
+    @include container;
+  }
+
+  .hero__content {
+    background: $hampton;
+    border: 1px solid $mine-shaft;
+    margin: 0 $gutter-width;
+    padding: $gutter-width;
+    position: relative;
+    text-align: center;
+    top: 165px;
+    
+    @include susy-breakpoint($tablet, $susy) {
+      margin: 0 auto;
+      min-height: 364px;
+      padding: 50px;
+      top: 111px;
+      width: span(5);
+    }
+
+    .hero__description {
+      font-size: 1.8em * $mobile-conversion;
+
+      @include susy-breakpoint($tablet, $susy) {
+        font-size: 1.8em;
+      }
+
+      * {
+        font-size: 1em;
+      }
+    }
+
+    h2 {
+      color: $fuzzy-wuzzy-brown;
+      font-size: 3.5em * $mobile-conversion;
+      margin: 0 0 20px;
+
+      @include susy-breakpoint($tablet, $susy) {
+        font-size: 3.5em;
+      }
+    }
+
+    p {
+      margin: 0 0 25px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .cta {
+      @extend %reset;
+      background: $fuzzy-wuzzy-brown;
+      color: $hampton;
+      font-family: 'industry_incbase';
+      font-size: 1.4em * $mobile-conversion;
+      letter-spacing: .02em;
+      margin: $gutter-width 0 0;
+      padding: 13px 40px 10px;
+      text-transform: uppercase;
+
+      @include susy-breakpoint($tablet, $susy) {
+        font-size: 1.4em;
+        margin: 50px 0 0;
+      }
+    }
+  }
+}
+
+%hero-alt {
+  @extend %hero;
+
+  .hero__content {
+    background-color: $fiord;
+    color: $hampton;
+
+    h2 {
+      color: $hampton;
+    }
+  }
+}

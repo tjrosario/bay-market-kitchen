@@ -20,32 +20,54 @@
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'magnus' ); ?></a>
-
+	
 	<header id="masthead" class="site-header" role="banner">
+		<div class="masthead__wrapper wrapper content-area">
+			<div class="site-branding">
 
-		<div class="site-branding">
+      <div class="site-title">
+          <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" title="<?php bloginfo( 'name' ); ?>">
+              <img src="<?=get_template_directory_uri() ?>/images/logo.png">
+          </a>
+      </div>
 
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+			</div><!-- .site-branding -->
 
-			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-		</div><!-- .site-branding -->
+			<nav id="site-navigation" class="header-navigation" role="navigation">
+				<div class="menu-header-container">
+					<?php wp_nav_menu(
+					array(
+						'theme_location' => 'primary', //secondary
+						'container' => 'false',
+						'menu_id' => 'header-menu',
+						'fallback_cb' => 'false',
+						'depth' => '1'
+					) ); ?>
+				</div>
+				
+			</nav><!-- #site-navigation -->
 
-		<nav id="site-navigation" class="header-navigation" role="navigation">
-			<div class="menu-header-container">
-			<?php wp_nav_menu(
-			array(
-				'theme_location' => 'secondary',
-				'container' => 'false',
-				'menu_id' => 'header-menu',
-				'fallback_cb' => 'false',
-				'depth' => '1'
-			) ); ?>
+			<?php 
+				$theme_options = get_option('my_theme_settings');
+			?>
+			<div class="site-social">
+				<ul class="social">
+					<li><a href="<?=$theme_options['social_facebook']?>" rel="external" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+					<li><a href="<?=$theme_options['social_twitter']?>" rel="external" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+					<li><a href="<?=$theme_options['social_instagram']?>" rel="external" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+					<li><a href="<?=$theme_options['social_email']?>" rel="external" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+				</ul>
 			</div>
-			<button class="sidebar-toggle" aria-controls="sidebar" aria-expanded="false">
-				<span class="sidebar-toggle-icon"><?php _e( 'Sidebar', 'magnus' ); ?></span>
-			</button>
-		</nav><!-- #site-navigation -->
 
+			<button class="sidebar-toggle" aria-controls="sidebar" aria-expanded="false">
+				<!--
+					<span class="sidebar-toggle-icon"><?php _e( 'Sidebar', 'magnus' ); ?></span>
+				-->
+					<i class="fa fa-bars" aria-hidden="true"></i>
+
+				</button>
+		</div>
 	</header><!-- #masthead -->
 
 
