@@ -4,7 +4,7 @@ Title: Theme Settings Section
 Setting: my_theme_settings
 */
 
-include_once('states.php');
+include('variables.php');
 
 // social media
 piklist('field', array(

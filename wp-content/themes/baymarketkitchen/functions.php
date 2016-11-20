@@ -207,8 +207,6 @@ function piklist_theme_setting_pages($pages) {
   );
 
 
-
-
   return $pages;
 }
 

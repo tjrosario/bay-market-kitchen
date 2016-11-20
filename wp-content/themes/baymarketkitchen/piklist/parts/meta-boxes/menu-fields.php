@@ -4,42 +4,7 @@ Title: Menu Fields
 Post Type: page
 */
 
-$colors = array(
-  '#3d5265' => 'Navy',
-  '#bf6059' => 'Red',
-  '#212121' => 'Black'
-);
-
-$fonts = array(
-  'Pathway Gothic One' => 'Pathway Gothic',
-  'industry_incbase' => 'Industry, Inc Base',
-  'industry_incbevel' => 'Industry, Inc Bevel',
-  'industry_inc3d' => 'Industry, Inc 3D',
-  'industry_incin-n-out' => 'Industry, In n Out'
-);
-
-$serving_sizes = array(
-  '6oz' => '6oz',
-  '12oz' => '12oz',
-  '16oz' => '16oz',
-  '24oz' => '24oz',
-  'Gls' => 'Gls',
-  'Bottle' => 'Bottle',
-  'Glass 16oz' => 'Glass 16oz',
-  'Growler 32oz | 64oz' => 'Growler 32oz | 64oz'
-);
-
-$columns = array(
-  'span3' => '3 Columns',
-  'span5' => '5 Columns',
-  'span7' => '7 Columns'
-);
-
-$alignments = array(
-  'align-left' => 'Left',
-  'align-center' => 'Center',
-  'align-right' => 'Right'
-);
+include('variables.php');
 
 piklist('field', array(
   'type' => 'group'
@@ -51,7 +16,7 @@ piklist('field', array(
       'type' => 'text'
       ,'field' => 'menu_title'
       ,'label' => __('Menu Title', 'menu-metabox')
-      ,'columns' => 6
+      ,'columns' => 12
     )
     ,array(
       'type' => 'select'
@@ -71,11 +36,19 @@ piklist('field', array(
     )
     ,array(
       'type' => 'select'
+      ,'field' => 'menu_title_alignment'
+      ,'label' => __('Menu Title Alignment', 'menu-metabox')
+      ,'columns' => 3
+      ,'choices' => $alignments
+      ,'value' => 'align-left'
+    )
+    ,array(
+      'type' => 'select'
       ,'field' => 'menu_width'
       ,'label' => __('Menu Width', 'menu-metabox')
       ,'columns' => 3
       ,'choices' => $columns
-      ,'value' => 'span5'
+      ,'value' => 'span5-5'
     )
     ,array(
       'type' => 'number'
@@ -98,7 +71,7 @@ piklist('field', array(
     ,array(
       'type' => 'select'
       ,'field' => 'menu_alignment'
-      ,'label' => __('Content Alignment', 'menu-metabox')
+      ,'label' => __('Menu Content Alignment', 'menu-metabox')
       ,'columns' => 3
       ,'choices' => $alignments
       ,'value' => 'align-left'
@@ -107,17 +80,29 @@ piklist('field', array(
       'type' => 'radio'
       ,'field' => 'menu_layout'
       ,'label' => __('Menu Layout', 'menu-fields')
-      ,'columns' => 6
+      ,'columns' => 4
       ,'choices' => array(
         'list' => 'List'
         ,'grid' => 'Grid'
       )
     )
     ,array(
+      'type' => 'radio'
+      ,'field' => 'menu_break_after'
+      ,'label' => __('Break After', 'menu-fields')
+      ,'help' => "Any proceeding menu will appear on next line"
+      ,'columns' => 4
+      ,'choices' => array(
+        '--break-after' => 'Yes'
+        ,'' => 'No'
+      )
+      ,'value' => ''
+    )
+    ,array(
       'type' => 'select'
       ,'field' => 'menu_serving_sizes'
       ,'label' => __('Serving Sizes', 'menu-fields')
-      ,'columns' => 6
+      ,'columns' => 4
       ,'choices' => $serving_sizes
       ,'attributes' => array(
         'multiple' => 'multiple'
@@ -169,6 +154,15 @@ piklist('field', array(
           ,'columns' => 3
         )
         ,array(
+          'type' => 'select'
+          ,'field' => 'menu_item_price_color'
+          ,'label' => __('Item Price Color', 'menu-metabox')
+          ,'choices' => $colors
+          ,'value' => '#afb5bc'
+          ,'columns' => 3
+        )
+
+        ,array(
           'type' => 'radio'
           ,'field' => 'menu_item_type'
           ,'label' => __('Item Type', 'menu-metabox')
@@ -177,7 +171,7 @@ piklist('field', array(
             'addon' => 'Add On',
           )
           ,'value' => 'regular'
-          ,'columns' => 3
+          ,'columns' => 6
         )
         ,array(
           'type' => 'checkbox'
@@ -187,7 +181,7 @@ piklist('field', array(
           ,'choices' => array(
               true => 'Enable'
             )
-          ,'columns' => 3
+          ,'columns' => 6
         )
         ,array(
           'type' => 'group'

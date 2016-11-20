@@ -4,6 +4,8 @@ Title: Hero Fields
 Post Type: page
 */
 
+include('variables.php');
+
 // headline
 piklist('field', array(
   'type' => 'text'
@@ -36,6 +38,42 @@ piklist('field', array(
       'wp_autoresize_on' => true
     )
   )
+));
+
+// content width
+piklist('field', array(
+  'type' => 'select'
+  ,'field' => 'hero_content_theme'
+  ,'label' => __('Hero Content Theme', 'menu-metabox')
+  ,'columns' => 3
+  ,'choices' => array(
+    '--goldred' => 'Gold / Red',
+    '--navygold' => 'Navy / Gold'
+  )
+  ,'value' => '--goldred'
+));
+
+// content width
+piklist('field', array(
+  'type' => 'select'
+  ,'field' => 'hero_content_width'
+  ,'label' => __('Hero Content Width', 'menu-metabox')
+  ,'columns' => 3
+  ,'choices' => $columns
+  ,'value' => 'span5-5'
+));
+
+// content position
+piklist('field', array(
+  'type' => 'select'
+  ,'field' => 'hero_content_position'
+  ,'label' => __('Hero Content Position', 'menu-metabox')
+  ,'columns' => 3
+  ,'choices' => array(
+    'position-left' => 'Left',
+    'position-center' => 'Center'
+  )
+  ,'value' => 'position-center'
 ));
 
 // call to action
