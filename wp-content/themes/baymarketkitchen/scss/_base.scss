@@ -580,8 +580,30 @@ p {
   }
 }
 
+.hero-container {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+
+  @include susy-breakpoint($tablet, $susy) {
+    height: 424px;
+  }
+
+  .hero__bg {
+    background-position: center center;
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
 .hero {
   @extend %hero;
+  position: relative;
+  z-index: 2;
 
   .hero__content_alt {
     .logo-home {

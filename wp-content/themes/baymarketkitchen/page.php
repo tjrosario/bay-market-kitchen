@@ -46,23 +46,26 @@ get_header(); ?>
 	?>
 
 	<?php if(strlen($hero_image) > 0) { ?>
-	<div class="hero" style="background-image:url(<?=$hero_image ?>);">
-		<div class="hero__content_alt">
-			<img src="<?=get_template_directory_uri() ?>/images/logo-home.png" class="logo-home">
+	<div class="hero-container">
+		<div class="hero__bg" style="background-image:url(<?=$hero_image ?>);"></div>
+		<div class="hero">
+			<div class="hero__content_alt">
+				<img src="<?=get_template_directory_uri() ?>/images/logo-home.png" class="logo-home">
 
-			<nav class="header-navigation" role="navigation">
-				<div class="menu-header-container">
-					<?php wp_nav_menu(
-					array(
-						'theme_location' => 'primary', //secondary
-						'container' => 'false',
-						'menu_id' => 'header-menu',
-						'fallback_cb' => 'false',
-						'depth' => '1'
-					) ); ?>
-				</div>
-				
-			</nav><!-- #site-navigation -->
+				<nav class="header-navigation" role="navigation">
+					<div class="menu-header-container">
+						<?php wp_nav_menu(
+						array(
+							'theme_location' => 'primary', //secondary
+							'container' => 'false',
+							'menu_id' => 'header-menu',
+							'fallback_cb' => 'false',
+							'depth' => '1'
+						) ); ?>
+					</div>
+					
+				</nav><!-- #site-navigation -->
+			</div>
 		</div>
 	</div>
 

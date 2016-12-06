@@ -66,8 +66,18 @@ piklist('field', array(
 // hours of operation
 piklist('field', array(
   'type' => 'text'
-  ,'field' => 'company_hours'
-  ,'label' => 'Hours of Operation'
+  ,'field' => 'company_hours_1'
+  ,'label' => 'Hours of Operation (Line 1)'
+  ,'description' => ''
+  ,'attributes' => array(
+    'class' => 'text'
+  )
+));
+
+piklist('field', array(
+  'type' => 'text'
+  ,'field' => 'company_hours_2'
+  ,'label' => 'Hours of Operation (Line 2)'
   ,'description' => ''
   ,'attributes' => array(
     'class' => 'text'

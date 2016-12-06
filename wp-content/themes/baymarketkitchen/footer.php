@@ -21,9 +21,9 @@
         <div class="company-hours">
           <h6>Opening Hours</h6>
           <div class="content">
-            <?=$theme_options['company_hours'] ?>
+            <div><?=$theme_options['company_hours_1'] ?></div>
+            <div><?=$theme_options['company_hours_2'] ?></div>
           </div>
-          <h6>Everyday</h6>
         </div>
       </div>
 
@@ -52,10 +52,18 @@
               <h6>Find Us</h6>
               <div class="content">
                 <ul class="social">
+                  <?php if (strlen($theme_options['social_facebook']) > 0) { ?>
                   <li><a href="<?=$theme_options['social_facebook']?>" rel="external" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                  <? } ?>
+                  <?php if (strlen($theme_options['social_twitter']) > 0) { ?>
                   <li><a href="<?=$theme_options['social_twitter']?>" rel="external" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                  <? } ?>
+                  <?php if (strlen($theme_options['social_instagram']) > 0) { ?>
                   <li><a href="<?=$theme_options['social_instagram']?>" rel="external" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                  <? } ?>
+                  <?php if (strlen($theme_options['social_email']) > 0) { ?>
                   <li><a href="<?=$theme_options['social_email']?>" rel="external" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+                  <? } ?>
                 </ul>
               </div>
             </div>

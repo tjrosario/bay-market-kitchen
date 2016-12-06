@@ -35,15 +35,14 @@
 }
 
 %hero {
-  background-position: center center;
-  background-size: cover;
-  height: 200px;
+  //height: 200px;
+  height: 100%;
   //margin: 0 0 200px;
-  overflow: hidden;
   position: relative;
+  width: 100%;
 
   @include susy-breakpoint($tablet, $susy) {
-    height: 424px;
+    //height: 424px;
    // margin-bottom: 150px;
   }
 
